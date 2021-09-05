@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <!-- Lightbox CSS -->
+    <link href="css/lightbox.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Instagram-Clone</title>
+  </head>
+  <body>
+    <!----- Navbar Start ----->
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+      <div class="container-md offset-md-2">
+        <!-- Container Start -->
+        <a class="navbar-brand .d-sm-ms-0" href="#">
+          <img
+            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+            alt=""
+          />
+        </a>
+        <form style="position: relative" class="d-flex">
+          <input
+            type="text"
+            class="form-control header-search collapse navbar-collapse"
+            id="search"
+            type="search"
+            name="search"
+            onchange="hideIcon(this);"
+            placeholder="Ara"
+          />
+        </form>
+        <div class="nav-icons">
+          <div class="nav-icons-down d-flex">
+            <a
+              class="list-group-item list-group-item-action"
+              aria-current="page"
+              href="#"
+            >
+              <svg
+                aria-label="Ana Sayfa"
+                class="_8-yf5"
+                fill="#262626"
+                height="22"
+                role="img"
+                viewBox="0 0 48 48"
+                width="22"
+              >
+                <path
+                  d="M45.3 48H30c-.8 0-1.5-.7-1.5-1.5V34.2c0-2.6-2-4.6-4.6-4.6s-4.6 2-4.6 4.6v12.3c0 .8-.7 1.5-1.5 1.5H2.5c-.8 0-1.5-.7-1.5-1.5V23c0-.4.2-.8.4-1.1L22.9.4c.6-.6 1.5-.6 2.1 0l21.5 21.5c.4.4.6 1.1.3 1.6 0 .1-.1.1-.1.2v22.8c.1.8-.6 1.5-1.4 1.5zm-13.8-3h12.3V23.4L24 3.6l-20 20V45h12.3V34.2c0-4.3 3.3-7.6 7.6-7.6s7.6 3.3 7.6 7.6V45z"
+                ></path>
+              </svg>
+            </a>
+
+            <a class="list-group-item list-group-item-action" href="#">
+              <svg
+                aria-label="Direct"
+                class="_8-yf5"
+                fill="#262626"
+                height="22"
+                role="img"
+                viewBox="0 0 48 48"
+                width="22"
+              >
+                <path
+                  d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                ></path>
+              </svg>
+            </a>
+
+            <a class="list-group-item list-group-item-action" href="#">
+              <svg
+                aria-label="Kişiler Bul"
+                class="_8-yf5"
+                fill="#262626"
+                height="22"
+                role="img"
+                viewBox="0 0 48 48"
+                width="22"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M24 0C10.8 0 0 10.8 0 24s10.8 24 24 24 24-10.8 24-24S37.2 0 24 0zm0 45C12.4 45 3 35.6 3 24S12.4 3 24 3s21 9.4 21 21-9.4 21-21 21zm10.2-33.2l-14.8 7c-.3.1-.6.4-.7.7l-7 14.8c-.3.6-.2 1.3.3 1.7.3.3.7.4 1.1.4.2 0 .4 0 .6-.1l14.8-7c.3-.1.6-.4.7-.7l7-14.8c.3-.6.2-1.3-.3-1.7-.4-.5-1.1-.6-1.7-.3zm-7.4 15l-5.5-5.5 10.5-5-5 10.5z"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </a>
+
+            <a class="list-group-item list-group-item-action" href="">
+              <svg
+                aria-label="Hareket Akışı"
+                class="_8-yf5"
+                fill="#262626"
+                height="22"
+                role="img"
+                viewBox="0 0 48 48"
+                width="22"
+              >
+                <path
+                  d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                ></path>
+              </svg>
+            </a>
+
+            <a
+              class="list-group-item list-group-item-action mini-photo"
+              href="#"
+            >
+              <img class="taha" src="images/taha.jpg" alt="" />
+            </a>
+          </div>
+        </div>
+        <!-- Container-End -->
+      </div>
+    </nav>
+    <!------- Navbar End  ------->
+
+    <!------ Main Content Start ------>
+    <main>
+      <div class="container">
+        <div class="row">
+          <!-- Image Content Start -->
+          <!-- Story-Slider Start -->
+          <div class="col offset-md-1">
+            <section class="col-sm mt-4">
+              <div class="story-slider">
+                <a href="images/patika.jpg" data-lightbox="roadtrip">
+                  <img class="story-images" src="images/patika.jpg" alt="" />
+                  <span>patika.dev</span>
+                </a>
+
+                <a href="images/kodluyoruz-pic.jpg" data-lightbox="roadtrip">
+                  <img
+                    class="story-images"
+                    src="images/kodluyoruz-pic.jpg"
+                    alt=""
+                  />
+                  <span>kodluyoruz</span>
+                </a>
+
+                <a href="images/hackerrank.jpg" data-lightbox="roadtrip">
+                  <img
+                    class="story-images"
+                    src="images/hackerrank.jpg"
+                    alt=""
+                  />
+                  <span>hackerrank</span>
+                </a>
+
+                <a href="images/vedatmilor.jpg" data-lightbox="roadtrip">
+                  <img
+                    class="story-images"
+                    src="images/vedatmilor.jpg"
+                    alt=""
+                  />
+                  <span>vmilor</span>
+                </a>
+
+                <a href="images/fatiharslan.jpg" data-lightbox="roadtrip">
+                  <img
+                    class="story-images"
+                    src="images/fatiharslan.jpg"
+                    alt=""
+                  />
+                  <span> fatih.arslan_</span>
+                </a>
+
+                <a href="images/freegrafiker.jpg" data-lightbox="roadtrip">
+                  <img
+                    class="story-images"
+                    src="images/freegrafiker.jpg"
+                    alt=""
+                  />
+                  <span>freegrafiker</span>
+                </a>
+
+                <a href="images/codepen.jpg" data-lightbox="roadtrip">
+                  <img class="story-images" src="images/codepen.jpg" alt="" />
+                  <span>codepen</span>
+                </a>
+              </div>
+            </section>
+
+            <!-- Story-Slider End -->
+            <section class="flood mt-4">
+              <!----- Card Start ---->
+              <div class="card">
+                <div class="card-header">
+                  <div class="flood-profile-detail">
+                    <img
+                      class="flood-profilepic"
+                      src="images/kodluyoruz-pic.jpg"
+                      alt=""
+                    />
+                    kodluyoruz
+                  </div>
+                  <div class="dropdown">
+                    <button
+                      class="btn dropdown-toggle"
+                      type="button"
+                      id="dropdownMenu2"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      ...
+                    </button>
+                    <ul
+                      class="dropdown-menu dropdown-menu-end"
+                      aria-labelledby="dropdownMenu2"
+                    >
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Action
+                        </button>
+                      </li>
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Another action
+                        </button>
+                      </li>
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Something else here
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                  src="images/kodluyoruz.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body card-icons">
+                  <a href="#">
+                    <svg
+                      aria-label="Beğenmekten Vazgeç"
+                      class="_8-yf5"
+                      fill="#ed4956"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      aria-label="Yorum Yap"
+                      class="_8-yf5"
+                      fill="#262626"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a href="#">
+                    <svg
+                      aria-label="Gönderi Paylaş"
+                      class="_8-yf5"
+                      fill="#262626"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a class="save" href="#">
+                    <svg
+                      aria-label="Kaydet"
+                      class="_8-yf5"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+                <div style="padding-top: 0" class="card-body">
+                  <a href="#" class="card-link">
+                    <img class="comment-picture" src="images/taha.jpg" alt="" />
+                    rtahabas</a
+                  >
+                  ve
+                  <a href="#" style="margin-left: 0" class="card-link"
+                    >1.500 diğer kişi</a
+                  >
+                  beğendi
+                </div>
+                <footer class="blockquote-footer">
+                  9 Saat Önce <cite title="Source Title"></cite>
+                </footer>
+
+                <hr />
+                <div class="input-group mb-3 align-items-center">
+                  <div style="padding: 0px 15px 0px 15px" class="comment-icon">
+                    <svg
+                      aria-label="İfade Simgesi"
+                      class="_8-yf5"
+                      fill="#262626"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M24 48C10.8 48 0 37.2 0 24S10.8 0 24 0s24 10.8 24 24-10.8 24-24 24zm0-45C12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21S35.6 3 24 3z"
+                      ></path>
+                      <path
+                        d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control comment"
+                    placeholder="Yorum Ekle..."
+                    aria-label="comment"
+                    aria-describedby="button-addon2"
+                    required
+                  />
+                  <button class="btn" type="button" id="button-addon2">
+                    Paylaş
+                  </button>
+                </div>
+              </div>
+              <!----- Card End ----->
+              <!----- Card Start ---->
+              <div class="card mt-4">
+                <div class="card-header">
+                  <div class="flood-profile-detail">
+                    <img
+                      class="flood-profilepic"
+                      src="images/hackerrank.jpg"
+                      alt=""
+                    />
+                    hackerrank
+                  </div>
+                  <div class="dropdown">
+                    <button
+                      class="btn dropdown-toggle"
+                      type="button"
+                      id="dropdownMenu2"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      ...
+                    </button>
+                    <ul
+                      class="dropdown-menu dropdown-menu-end"
+                      aria-labelledby="dropdownMenu2"
+                    >
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Action
+                        </button>
+                      </li>
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Another action
+                        </button>
+                      </li>
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Something else here
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img
+                  src="images/hackkerrank-post.jpg"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body card-icons">
+                  <a href="#">
+                    <svg
+                      aria-label="Beğenmekten Vazgeç"
+                      class="_8-yf5"
+                      fill="#ed4956"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                      ></path>
+                    </svg>
+                  </a>
+
+                  <a href="#">
+                    <svg
+                      aria-label="Yorum Yap"
+                      class="_8-yf5"
+                      fill="#262626"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </a>
+
+                  <a href="#">
+                    <svg
+                      aria-label="Gönderi Paylaş"
+                      class="_8-yf5"
+                      fill="#262626"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a class="save" href="#">
+                    <svg
+                      aria-label="Kaydet"
+                      class="_8-yf5"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+                <div style="padding-top: 0" class="card-body">
+                  <a href="#" class="card-link">
+                    <img class="comment-picture" src="images/taha.jpg" alt="" />
+                    rtahabas</a
+                  >
+                  ve
+                  <a href="#" style="margin-left: 0" class="card-link"
+                    >1.500 diğer kişi</a
+                  >
+                  beğendi
+                </div>
+                <footer class="blockquote-footer">
+                  9 Saat Önce <cite title="Source Title"></cite>
+                </footer>
+
+                <hr />
+                <div class="input-group mb-3 align-items-center">
+                  <div style="padding: 0px 15px 0px 15px" class="comment-icon">
+                    <svg
+                      aria-label="İfade Simgesi"
+                      class="_8-yf5"
+                      fill="#262626"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M24 48C10.8 48 0 37.2 0 24S10.8 0 24 0s24 10.8 24 24-10.8 24-24 24zm0-45C12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21S35.6 3 24 3z"
+                      ></path>
+                      <path
+                        d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control comment"
+                    placeholder="Yorum Ekle..."
+                    aria-label="comment"
+                    aria-describedby="button-addon2"
+                    required
+                  />
+                  <button class="btn" type="button" id="button-addon2">
+                    Paylaş
+                  </button>
+                </div>
+              </div>
+              <!----- Card End ----->
+              <!----- Card Start ---->
+              <div class="card mb-3 mt-4">
+                <div class="card-header">
+                  <div class="flood-profile-detail">
+                    <img
+                      class="flood-profilepic"
+                      src="images/taha.jpg"
+                      alt=""
+                    />
+                    rtahabas
+                  </div>
+                  <div class="dropdown">
+                    <button
+                      class="btn dropdown-toggle"
+                      type="button"
+                      id="dropdownMenu2"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      ...
+                    </button>
+                    <ul
+                      class="dropdown-menu dropdown-menu-end"
+                      aria-labelledby="dropdownMenu2"
+                    >
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Action
+                        </button>
+                      </li>
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Another action
+                        </button>
+                      </li>
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Something else here
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <img src="images/tahaa.jpg" class="card-img-top" alt="..." />
+                <div class="card-body card-icons">
+                  <a href="#">
+                    <svg
+                      aria-label="Beğenmekten Vazgeç"
+                      class="_8-yf5"
+                      fill="#ed4956"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M34.6 3.1c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5s1.1-.2 1.6-.5c1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"
+                      ></path>
+                    </svg>
+                  </a>
+
+                  <a href="#">
+                    <svg
+                      aria-label="Yorum Yap"
+                      class="_8-yf5"
+                      fill="#262626"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </a>
+
+                  <a href="#">
+                    <svg
+                      aria-label="Gönderi Paylaş"
+                      class="_8-yf5"
+                      fill="#262626"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M47.8 3.8c-.3-.5-.8-.8-1.3-.8h-45C.9 3.1.3 3.5.1 4S0 5.2.4 5.7l15.9 15.6 5.5 22.6c.1.6.6 1 1.2 1.1h.2c.5 0 1-.3 1.3-.7l23.2-39c.4-.4.4-1 .1-1.5zM5.2 6.1h35.5L18 18.7 5.2 6.1zm18.7 33.6l-4.4-18.4L42.4 8.6 23.9 39.7z"
+                      ></path>
+                    </svg>
+                  </a>
+                  <a class="save" href="#">
+                    <svg
+                      aria-label="Kaydet"
+                      class="_8-yf5"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M43.5 48c-.4 0-.8-.2-1.1-.4L24 29 5.6 47.6c-.4.4-1.1.6-1.6.3-.6-.2-1-.8-1-1.4v-45C3 .7 3.7 0 4.5 0h39c.8 0 1.5.7 1.5 1.5v45c0 .6-.4 1.2-.9 1.4-.2.1-.4.1-.6.1zM24 26c.8 0 1.6.3 2.2.9l15.8 16V3H6v39.9l15.8-16c.6-.6 1.4-.9 2.2-.9z"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+                <div style="padding-top: 0" class="card-body">
+                  <a href="#" class="card-link">
+                    <img class="comment-picture" src="images/taha.jpg" alt="" />
+                    rtahabas</a
+                  >
+                  ve
+                  <a href="#" style="margin-left: 0" class="card-link"
+                    >1.500 diğer kişi</a
+                  >
+                  beğendi
+                </div>
+                <footer class="blockquote-footer">
+                  9 Saat Önce <cite title="Source Title"></cite>
+                </footer>
+
+                <hr />
+                <div class="input-group mb-3 align-items-center">
+                  <div style="padding: 0px 15px 0px 15px" class="comment-icon">
+                    <svg
+                      aria-label="İfade Simgesi"
+                      class="_8-yf5"
+                      fill="#262626"
+                      height="24"
+                      role="img"
+                      viewBox="0 0 48 48"
+                      width="24"
+                    >
+                      <path
+                        d="M24 48C10.8 48 0 37.2 0 24S10.8 0 24 0s24 10.8 24 24-10.8 24-24 24zm0-45C12.4 3 3 12.4 3 24s9.4 21 21 21 21-9.4 21-21S35.6 3 24 3z"
+                      ></path>
+                      <path
+                        d="M34.9 24c0-1.4-1.1-2.5-2.5-2.5s-2.5 1.1-2.5 2.5 1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5zm-21.8 0c0-1.4 1.1-2.5 2.5-2.5s2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5zM24 37.3c-5.2 0-8-3.5-8.2-3.7-.5-.6-.4-1.6.2-2.1.6-.5 1.6-.4 2.1.2.1.1 2.1 2.5 5.8 2.5 3.7 0 5.8-2.5 5.8-2.5.5-.6 1.5-.7 2.1-.2.6.5.7 1.5.2 2.1 0 .2-2.8 3.7-8 3.7z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control comment"
+                    placeholder="Yorum Ekle..."
+                    aria-label="comment"
+                    aria-describedby="button-addon2"
+                    required
+                  />
+                  <button class="btn" type="button" id="button-addon2">
+                    Paylaş
+                  </button>
+                </div>
+              </div>
+              <!----- Card End ----->
+            </section>
+            <!-- Image Content End -->
+          </div>
+
+          <div class="col-md-5">
+            <aside style="float: left">
+              <nav class="nav flex-column" style="position: fixed">
+                <a class="nav-link" aria-current="page" href="#">
+                  <div class="profile d-flex align-items-center">
+                    <div class="profile-picture">
+                      <img
+                        style="width: 56; height: 56px"
+                        src="images/taha.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="profile-detail">
+                      <a href="#">rtahabas</a>
+                      <br />
+                      <span style="color: #8e8e8e">R.Taha BAŞ</span>
+                    </div>
+                    <div class="change-profile">
+                      <a class="font-memory" href="#">Geçiş Yap</a>
+                    </div>
+                  </div>
+                </a>
+                <div class="suggestions-you">
+                  Senin İçin Öneriler
+                  <a href="#">Tümünü Gör</a>
+                </div>
+                <a class="nav-link" href="#">
+                  <div class="suggestions d-flex align-items-center">
+                    <div class="suggest-photo">
+                      <img src="images/elonmusk.jpg" alt="" />
+                    </div>
+                    <div class="suggest-info">
+                      <div class="suggest-info-top">elonrmuskk</div>
+                      <div class="suggest-info-bottom">
+                        Senin İçin Öneriliyor
+                      </div>
+                    </div>
+                    <div class="suggest-follow">Takip Et</div>
+                  </div>
+                </a>
+                <a class="nav-link" href="#">
+                  <div class="suggestions d-flex align-items-center">
+                    <div class="suggest-photo">
+                      <img src="images/kablosuzbeyin.jpg" alt="" />
+                    </div>
+                    <div class="suggest-info">
+                      <div class="suggest-info-top">kablosuzbeyin</div>
+                      <div class="suggest-info-bottom">
+                        Senin İçin Öneriliyor
+                      </div>
+                    </div>
+                    <div class="suggest-follow">Takip Et</div>
+                  </div>
+                </a>
+                <a class="nav-link" href="#">
+                  <div class="suggestions d-flex align-items-center">
+                    <div class="suggest-photo">
+                      <img src="images/serdarortac.jpg" alt="" />
+                    </div>
+                    <div class="suggest-info">
+                      <div class="suggest-info-top">serdarsortac</div>
+                      <div class="suggest-info-bottom">
+                        Senin İçin Öneriliyor
+                      </div>
+                    </div>
+                    <div class="suggest-follow">Takip Et</div>
+                  </div>
+                </a>
+                <a class="nav-link" href="#">
+                  <div class="suggestions d-flex align-items-center">
+                    <div class="suggest-photo">
+                      <img src="images/kodluyoruz-junior.jpg" alt="" />
+                    </div>
+                    <div class="suggest-info">
+                      <div class="suggest-info-top">kodluyoruz_junior</div>
+                      <div class="suggest-info-bottom">
+                        Senin İçin Öneriliyor
+                      </div>
+                    </div>
+                    <div class="suggest-follow">Takip Et</div>
+                  </div>
+                </a>
+                <a class="nav-link" href="#">
+                  <div class="suggestions d-flex align-items-center">
+                    <div class="suggest-photo">
+                      <img src="images/microsoft.jpg" alt="" />
+                    </div>
+                    <div class="suggest-info">
+                      <div class="suggest-info-top">microsoftdeveloper</div>
+                      <div class="suggest-info-bottom">
+                        Senin İçin Öneriliyor
+                      </div>
+                    </div>
+                    <div class="suggest-follow">Takip Et</div>
+                  </div>
+                </a>
+              </nav>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!------ Main Content End   ------>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/lightbox-plus-jquery.min.js"></script>
+  </body>
+</html>

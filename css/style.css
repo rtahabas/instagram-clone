@@ -1,0 +1,256 @@
+body {
+  background-color: #fafafa;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.navbar {
+  height: 54px;
+  background-color: #ffff;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+}
+.navbar-brand {
+  margin-left: 171px;
+}
+@media screen and (max-width: 1320px) {
+  .navbar-brand {
+    margin-left: 0;
+  }
+}
+.active {
+  fill: black;
+}
+.header-search {
+  width: 210px;
+  height: 28px;
+  margin-left: 75px;
+  padding-left: 24px;
+}
+::placeholder {
+  text-align: center;
+  font-size: 14px;
+}
+input#search {
+  background-image: url("/assets/search-solid.svg");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-x: 80px;
+}
+input#search:focus {
+  background-image: none;
+  text-indent: 0px;
+}
+
+.list-group-item {
+  border: none;
+  padding: 0;
+  padding-right: 22px;
+}
+.list-group-item:hover {
+  color: #ffff;
+  background-color: transparent;
+}
+
+.nav-icons {
+  margin-right: 182px;
+}
+@media screen and (max-width: 540px) {
+  .nav-icons {
+    margin-right: 1px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .nav-icons {
+    margin-right: 51px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .nav-icons {
+    margin-right: 51px;
+  }
+}
+
+.taha {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #dbdbdb;
+  border-radius: 50%;
+}
+
+/********** Main Content **********/
+
+/****** Side Bar Start ******/
+aside {
+  padding-top: 30px;
+  padding-left: 20px;
+}
+.profile-picture > img {
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+.profile-detail {
+  padding-left: 10px;
+  padding-right: 100px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.font-memory {
+  color: #0095f6;
+  font-weight: 600;
+}
+.change-profile {
+  font-size: 12px;
+}
+
+.suggestions-you {
+  padding: 15px 25px;
+  font-size: 14;
+  font-weight: 600;
+  color: #8e8e8e;
+}
+.suggestions-you > a {
+  margin-left: 95px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.suggest-photo > img {
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+.suggest-info {
+  width: 60%;
+  padding-left: 5px;
+}
+.suggest-info-top {
+  font-weight: 600;
+  font-size: 14px;
+  color: black;
+}
+.suggest-info-bottom {
+  font-size: 12px;
+  color: #8e8e8e;
+}
+.suggest-follow {
+  margin-left: 42px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media screen and (width: 1000px) {
+  aside {
+    display: none;
+  }
+}
+/****** Side Bar End  ******/
+
+/******* Image Content Start ******/
+
+.story-slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ffff;
+  height: 120px;
+  border: 1px solid #dbdbdb;
+  text-align: center;
+  overflow-x: auto;
+  margin-left: 82px;
+}
+@media screen and (max-width: 1000px) {
+  .story-slider {
+    margin-left: 0;
+  }
+}
+.story-slider a > span {
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.01em;
+  max-width: 74px;
+}
+
+.story-images {
+  width: 66px;
+  height: 66px;
+  border: 2px solid rgb(238, 39, 82);
+  border-radius: 50%;
+}
+.flood {
+  margin-left: 82px;
+}
+@media screen and (max-width: 1000px) {
+  .flood {
+    margin-left: 0;
+  }
+}
+
+.flood-profilepic {
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
+#dropdownMenu2 {
+  font-size: 15px;
+  font-weight: 900;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.card-icons {
+  padding-bottom: 0;
+}
+.card-icons > a {
+  padding: 5px;
+}
+.blockquote-footer::before {
+  display: none;
+}
+.blockquote-footer {
+  padding-left: 16px;
+}
+.save {
+  float: right;
+}
+.comment {
+  border: none;
+}
+.comment::placeholder {
+  text-align: start;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.comment:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+#button-addon2 {
+  color: #0095f6;
+  font-size: 14px;
+  font-weight: 600;
+}
+.comment-picture {
+  width: 15px;
+  height: 15px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+
+/******* Image Content End  ******/
