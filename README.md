@@ -2,7 +2,7 @@
 
 --- 
 
-![Resim!](images/Screenshot_1.png "index.html")
+![Resim!](images/Screenshot_1.jpg "index.html")
 
 
 ## License
