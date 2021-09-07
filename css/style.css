@@ -33,7 +33,7 @@ a {
   font-size: 14px;
 }
 input#search {
-  background-image: url("/assets/search-solid.svg");
+  background-image: url("../assets/search-solid.svg");
   background-size: 12px;
   background-repeat: no-repeat;
   background-position: center;
